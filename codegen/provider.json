@@ -1,0 +1,62 @@
+{
+  "provider": {
+    "name": "netbox",
+    "schema": {
+      "attributes": [
+        {
+          "name": "server_url",
+          "string": {
+            "optional_required": "required",
+            "description": "Location of Netbox server including scheme (http or https) and optional port. Can be set via the `NETBOX_SERVER_URL` environment variable."
+          }
+        },
+        {
+          "name": "api_token",
+          "string": {
+            "optional_required": "required",
+            "description": "Netbox API authentication token. Can be set via the `NETBOX_API_TOKEN` environment variable."
+          }
+        },
+        {
+          "name": "allow_insecure_https",
+          "bool": {
+            "optional_required": "optional",
+            "description": "Flag to set whether to allow https with invalid certificates. Can be set via the `NETBOX_ALLOW_INSECURE_HTTPS` environment variable. Defaults to `false`."
+          }
+        },
+        {
+          "name": "headers",
+          "map": {
+            "optional_required": "optional",
+            "description": "Set these header on all requests to Netbox. Can be set via the `NETBOX_HEADERS` environment variable",
+            "element_type": {
+              "string": {}
+            }
+          }
+        },
+        {
+          "name": "strip_trailing_slashes_from_url",
+          "bool": {
+            "optional_required": "optional",
+            "description": "If true, strip trailing slashes from the `server_url` parameter and print a warning when doing so. Note that using trailing slashes in the `server_url` parameter will usually lead to errors. Can be set via the `NETBOX_STRIP_TRAILING_SLASHES_FROM_URL` environment variable. Defaults to `true`."
+          }
+        },
+        {
+          "name": "skip_version_check",
+          "bool": {
+            "optional_required": "optional",
+            "description": "If true, do not try to determine the running Netbox version at provider startup. Disables warnings about possibly unsupported Netbox version. Also useful for local testing on terraform plans. Can be set via the `NETBOX_SKIP_VERSION_CHECK` environment variable. Defaults to `false`."
+          }
+        },
+        {
+          "name": "request_timeout",
+          "number": {
+            "optional_required": "optional",
+            "description": "Netbox API HTTP request timeout in seconds. Can be set via the `NETBOX_REQUEST_TIMEOUT` environment variable."
+          }
+        }
+      ]
+    }
+  },
+  "version": "0.1"
+}

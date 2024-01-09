@@ -1,0 +1,15 @@
+---
+provider:
+  name: netbox
+resources:
+  service:
+    create:
+      path: /api/ipam/services/
+      method: POST
+    read:
+      path: /api/ipam/services/{id}/
+      method: GET
+    schema:
+      ignores:
+        - custom_fields
+        - tags

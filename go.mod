@@ -10,6 +10,8 @@ require (
 	github.com/go-openapi/runtime v0.26.2
 	github.com/go-openapi/strfmt v0.22.0
 	github.com/goware/urlx v0.3.2
+	github.com/hashicorp/terraform-plugin-framework v1.4.2
+	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.31.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.8.4

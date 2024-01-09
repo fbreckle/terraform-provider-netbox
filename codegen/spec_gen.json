@@ -1,0 +1,138 @@
+{
+  "provider": {
+    "name": "netbox"
+  },
+  "resources": [
+    {
+      "name": "service",
+      "schema": {
+        "attributes": [
+          {
+            "name": "comments",
+            "string": {
+              "computed_optional_required": "computed_optional"
+            }
+          },
+          {
+            "name": "description",
+            "string": {
+              "computed_optional_required": "computed_optional",
+              "validators": [
+                {
+                  "custom": {
+                    "imports": [
+                      {
+                        "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                      }
+                    ],
+                    "schema_definition": "stringvalidator.LengthAtMost(200)"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "device",
+            "int64": {
+              "computed_optional_required": "computed_optional"
+            }
+          },
+          {
+            "name": "ipaddresses",
+            "list": {
+              "computed_optional_required": "computed_optional",
+              "element_type": {
+                "int64": {}
+              },
+              "description": "The specific IP addresses (if any) to which this service is bound"
+            }
+          },
+          {
+            "name": "name",
+            "string": {
+              "computed_optional_required": "required",
+              "validators": [
+                {
+                  "custom": {
+                    "imports": [
+                      {
+                        "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                      }
+                    ],
+                    "schema_definition": "stringvalidator.LengthBetween(1, 100)"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "ports",
+            "list": {
+              "computed_optional_required": "required",
+              "element_type": {
+                "int64": {}
+              }
+            }
+          },
+          {
+            "name": "protocol",
+            "string": {
+              "computed_optional_required": "required",
+              "description": "* `tcp` - TCP\n* `udp` - UDP\n* `sctp` - SCTP",
+              "validators": [
+                {
+                  "custom": {
+                    "imports": [
+                      {
+                        "path": "github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+                      }
+                    ],
+                    "schema_definition": "stringvalidator.OneOf(\n\"tcp\",\n\"udp\",\n\"sctp\",\n)"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "virtual_machine",
+            "int64": {
+              "computed_optional_required": "computed_optional"
+            }
+          },
+          {
+            "name": "created",
+            "string": {
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "display",
+            "string": {
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "id",
+            "int64": {
+              "computed_optional_required": "computed",
+              "description": "A unique integer value identifying this service."
+            }
+          },
+          {
+            "name": "last_updated",
+            "string": {
+              "computed_optional_required": "computed"
+            }
+          },
+          {
+            "name": "url",
+            "string": {
+              "computed_optional_required": "computed"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "version": "0.1"
+}
