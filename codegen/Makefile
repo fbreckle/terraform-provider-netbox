@@ -1,3 +1,5 @@
+all: resources provider scaffold
+
 spec_gen.json:
 	tfplugingen-openapi generate --config generator_config.yml --output spec_gen.json netbox-3.6.yaml
 
@@ -12,4 +14,8 @@ provider:
 .PHONY: scaffold
 scaffold:
 	mkdir -p ../internal/provider
-	tfplugingen-framework scaffold provider --name netbox --output-dir ../internal/provider
+	tfplugingen-framework scaffold resource --name netbox --output-dir ../internal/provider
+
+.PHONY: clean
+clean:
+	rm -rf ../internal/provider

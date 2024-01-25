@@ -5,7 +5,9 @@
   "resources": [
     {
       "name": "service",
+      "description": "service description",
       "schema": {
+        "description": "service description",
         "attributes": [
           {
             "name": "comments",
